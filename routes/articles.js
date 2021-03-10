@@ -16,11 +16,7 @@ function asyncHandler(cb){
 
 /* GET articles listing. */
 router.get('/', asyncHandler(async (req, res) => {
-  const articles = await Article.findAll({
-    order: [
-      ['title', 'ASC']
-    ]
-  },)
+  const articles = await Article.findAll({order: [['title', 'ASC']]})
   res.render("articles/index", { articles, title: "Sequelize-It!" });
 }));
 
